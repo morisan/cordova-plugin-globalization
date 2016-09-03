@@ -133,7 +133,7 @@ public class Globalization extends CordovaPlugin  {
     }
     /*
      * @Description: Returns a well-formed ITEF BCP 47 language tag representing
-     * the locale identifier for the client's current locale 
+     * the locale identifier for the client's current locale
      *
      * @Return: String: The BCP 47 language tag for the current locale
      */
@@ -152,7 +152,7 @@ public class Globalization extends CordovaPlugin  {
         }
 
         if( language.isEmpty() || !language.matches("\\p{Alpha}{2,8}")){
-            language = "und";       // Follow the Locale#toLanguageTag() implementation 
+            language = "und";       // Follow the Locale#toLanguageTag() implementation
                                     // which says to return "und" for Undetermined
         }else if(language.equals("iw")){
             language = "he";        // correct deprecated "Hebrew"
@@ -202,7 +202,7 @@ public class Globalization extends CordovaPlugin  {
         }
     }
     /*
-     * @Description: Returns the BCP 47 language tag for the client's 
+     * @Description: Returns the BCP 47 language tag for the client's
      * current language. Currently in Android this is the same as locale,
      * since Java does not distinguish between locale and language.
      *
@@ -347,6 +347,7 @@ public class Globalization extends CordovaPlugin  {
 
             obj.put("pattern", fmt);
             obj.put("timezone", tz.getDisplayName(tz.inDaylightTime(Calendar.getInstance().getTime()),TimeZone.SHORT));
+            obj.put("timezone_id", tz.getID());
             obj.put("utc_offset", tz.getRawOffset()/1000);
             obj.put("dst_offset", tz.getDSTSavings()/1000);
             return obj;
